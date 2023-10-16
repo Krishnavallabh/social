@@ -62,6 +62,41 @@ class MainActivity : AppCompatActivity() {
         transaction.commit()
         true
     }
+
+        binding.bottomAppBar.setOnItemReselectedListener {
+            val id = it.itemId
+
+            val transaction :FragmentTransaction =supportFragmentManager.beginTransaction()
+
+            if(id==R.id.home)
+            {
+                binding.toolbar.visibility = View.GONE
+                transaction.replace(R.id.container,HomeFragment())
+            }
+            else if(id==R.id.search){
+                binding.toolbar.visibility = View.GONE
+
+                transaction.replace(R.id.container,SearchFragment())
+
+            } else if(id==R.id.post){
+                binding.toolbar.visibility = View.GONE
+
+                transaction.replace(R.id.container,PostFragment())
+
+            } else if(id==R.id.notification){
+                binding.toolbar.visibility = View.GONE
+
+                transaction.replace(R.id.container,NotificationFragment())
+
+            } else if(id==R.id.user){
+                binding.toolbar.visibility = View.VISIBLE
+
+                transaction.replace(R.id.container,ProfileFragment())
+
+            }
+            transaction.commit()
+
+        }
 }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

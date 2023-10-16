@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import androidx.viewpager.widget.ViewPager
 import com.example.social.Adapter.NotificationViewPagerAdapter
 import com.example.social.R
@@ -21,7 +22,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [NotificationFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class NotificationFragment : Fragment() {
+class NotificationFragment(): Fragment() {
 
          lateinit var viewPager : ViewPager
          lateinit var tabLayout :TabLayout
@@ -41,8 +42,10 @@ class NotificationFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_notification, container, false)
          viewPager = view.findViewById(R.id.viewPager)
         tabLayout = view.findViewById(R.id.tabLayout)
+        viewPager.adapter = NotificationViewPagerAdapter(childFragmentManager)
+     // viewPager.adapter = fragmentManager?.let { NotificationViewPagerAdapter(it) }
         tabLayout.setupWithViewPager(viewPager )
-        viewPager.adapter = fragmentManager?.let { NotificationViewPagerAdapter(it) }
+
 
         return view
     }

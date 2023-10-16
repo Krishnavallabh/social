@@ -7,21 +7,28 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.example.social.Fragment.Notification2Fragment
 import com.example.social.Fragment.RequestFragment
 
-@Suppress("DEPRECATION")
-class NotificationViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm,
+
+class  NotificationViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm,
     BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     override fun getCount(): Int {
   return  2
     }
 
     override fun getItem(position: Int): Fragment {
-when(position)
 
+    when (position)
     {
-     0 -> return Notification2Fragment()
-     1 -> return RequestFragment()
-     else ->{ return Notification2Fragment()}
-     }
+        0 -> return Notification2Fragment()
+        1 -> return RequestFragment()
+        else -> {return Notification2Fragment()}
+    }
+
+    //     if(position==0)
+//     { return Notification2Fragment()
+//
+//     }
+//        else
+//     { return RequestFragment()}
   }
 
     override fun getPageTitle(position: Int): CharSequence? {

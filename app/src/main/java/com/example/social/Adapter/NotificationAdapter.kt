@@ -29,7 +29,7 @@ val view =LayoutInflater.from(context).inflate(R.layout.notification2_rv_design,
     }
 
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
-   var model = notificationList[position]
+   val model = notificationList[position]
         holder.profile.setImageResource(model.profile)
         holder.notification.text = Html.fromHtml(model.notification)
         holder.time.text = model.time
